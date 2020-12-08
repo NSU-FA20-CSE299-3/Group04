@@ -52,7 +52,7 @@
 <p><em>Payment method</em></p>
 <p>We will have Cash on delivery payment method along with other online payment like Bkash and will be using API to ensure that users can pay using their Debit card.</p>
 
-<p><strong>Monetization</strong></p>
+<p><em>Monetization</em></p>
 <p>As an online application, I will add Google AdSense to monetize the application to help me with the fund for its future development.</p>
 
 <p><strong>HIGHLIGHTS AND ET CETERA</strong></p>
