@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "662212181560",
+    "project_id": "emedicine-74b9a",
+    "storage_bucket": "emedicine-74b9a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662212181560:android:97d7f8790a69a719fdb0cd",
+        "android_client_info": {
+          "package_name": "com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "662212181560-bbonm62on6b0nqv7d0df6o4gm4dl1qdm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine",
+            "certificate_hash": "fb69b6f0c6e1699e3f6ab3b037924f0c952cd40a"
+          }
+        },
+        {
+          "client_id": "662212181560-l0d4l2vqd2akjji6s4rmnlbg69ie94vq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDddzO5nhyZ4ZXR_t0hvnDcpc2Btg1MwvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "662212181560-l0d4l2vqd2akjji6s4rmnlbg69ie94vq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
