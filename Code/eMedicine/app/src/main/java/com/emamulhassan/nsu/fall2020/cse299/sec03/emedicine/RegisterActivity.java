@@ -59,11 +59,11 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else if(TextUtils.isEmpty(phone))
         {
-            Toast.makeText(this, "Please Input Your Password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Input Your Phone Number!", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(password))
         {
-            Toast.makeText(this, "Please Input Your Phone Number!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Input Your Password!", Toast.LENGTH_SHORT).show();
         }
         else
         {
