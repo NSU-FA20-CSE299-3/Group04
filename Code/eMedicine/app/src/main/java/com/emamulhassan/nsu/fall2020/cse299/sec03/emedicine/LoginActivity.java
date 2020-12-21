@@ -92,19 +92,7 @@ public class LoginActivity extends AppCompatActivity
 
                     if (usersData.getPhone().equals(phone))
                     {
-                        if (usersData.getPassword().equals(password))
-                        {
-                            Toast.makeText(LoginActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
-
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                        }
-                        else
-                        {
-                            Toast.makeText(LoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
-                        }
+                        
                     }
                 }
                 else{
