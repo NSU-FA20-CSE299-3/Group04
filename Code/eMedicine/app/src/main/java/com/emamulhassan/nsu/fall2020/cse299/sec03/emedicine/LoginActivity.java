@@ -34,9 +34,11 @@ public class LoginActivity extends AppCompatActivity
     private CheckBox chkBoxRememberMe;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         LoginButton = (Button) findViewById(R.id.login_btn);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
@@ -47,14 +49,14 @@ public class LoginActivity extends AppCompatActivity
         Paper.init(this);
 
 
+
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view)
+            {
                 LoginUser();
             }
         });
-
-
 
     }
 
@@ -63,44 +65,42 @@ public class LoginActivity extends AppCompatActivity
         String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
 
-     if(TextUtils.isEmpty(phone))
+        if (TextUtils.isEmpty(phone))
         {
-            Toast.makeText(this, "Please Input Your Phone Number!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write your phone number...", Toast.LENGTH_SHORT).show();
         }
-     else if(TextUtils.isEmpty(password))
+        else if (TextUtils.isEmpty(password))
         {
-            Toast.makeText(this, "Please Input Your Password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please write your password...", Toast.LENGTH_SHORT).show();
         }
+        else
+        {
+            loadingBar.setTitle("Login Account");
+            loadingBar.setMessage("Please wait, while we are checking the credentials.");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
 
-     else
-     {
-         loadingBar.setTitle("Login Account");
-         loadingBar.setMessage("Please wait while we are checking the Credentials!");
-         loadingBar.setCanceledOnTouchOutside(false);
-         loadingBar.show();
 
-
-         AllowAccessToAccount(phone, password);
-
-     }
-
+            AllowAccessToAccount(phone, password);
+        }
     }
+
 
     private void AllowAccessToAccount(final String phone, final String password)
     {
+        if(chkBoxRememberMe.isChecked())
         {
-            if(chkBoxRememberMe.isChecked())
-            {
-                Paper.book().write(Prevalent.UserPhoneKey, phone);
-                Paper.book().write(Prevalent.UserPasswordKey, password);
-            }
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+        }
 
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
                 if (dataSnapshot.child(parentDbName).child(phone).exists())
                 {
                     Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
@@ -109,31 +109,34 @@ public class LoginActivity extends AppCompatActivity
                     {
                         if (usersData.getPassword().equals(password))
                         {
-                            Toast.makeText(LoginActivity.this, "Login Successful.", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
+                        if (parentDbName.equals("Users"))
+                    {
+                        Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
+                        loadingBar.dismiss();
 
-                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                            startActivity(intent);
-                        }
+                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        Prevalent.currentOnlineUser = usersData;
+                        startActivity(intent);
+                    }
+                    }
                         else
                         {
-                            Toast.makeText(LoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
+                            Toast.makeText(LoginActivity.this, "Incorrect Password!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
-                else{
-                    Toast.makeText(LoginActivity.this, "Account with This " +phone+ " Number Does not Exist.", Toast.LENGTH_SHORT).show();
+                else
+                {
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " Number does not Exists.", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
-
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
     }
 }
