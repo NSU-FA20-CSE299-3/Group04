@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity
         AdminLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginButton.setText("Login Admin");
+                LoginButton.setText("Login as Admin");
                 AdminLink.setVisibility(View.INVISIBLE);
                 NotAdminLink.setVisibility(View.VISIBLE);
                 parentDbName = "Admins";
@@ -97,16 +97,16 @@ public class LoginActivity extends AppCompatActivity
 
         if (TextUtils.isEmpty(phone))
         {
-            Toast.makeText(this, "Please write your phone number...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Write your Phone Number...", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(password))
         {
-            Toast.makeText(this, "Please write your password...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Write your Password...", Toast.LENGTH_SHORT).show();
         }
         else
         {
             loadingBar.setTitle("Login Account");
-            loadingBar.setMessage("Please wait, while we are checking the credentials.");
+            loadingBar.setMessage("Please wait, While we Check the Login Credentials.");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
@@ -143,26 +143,34 @@ public class LoginActivity extends AppCompatActivity
                         if (usersData.getPassword().equals(password))
                         {
 
-                            if (parentDbName.equals("Users"))
+                            if (parentDbName.equals("Admins"))
                             {
-                                Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Welcome Back, Admin.", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(LoginActivity.this, AdminAddNewProductActivity.class);
+                                startActivity(intent);
+                            }
+
+                            else if (parentDbName.equals("Users"))
+                            {
+                                Toast.makeText(LoginActivity.this, "Logged in Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
                             }
                         }
                         else
                         {
                             loadingBar.dismiss();
-                            Toast.makeText(LoginActivity.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Password is Incorrect.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
                 else
                 {
-                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " number do not exists.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Account with this " + phone + " Number does not Exists.", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
                 }
             }
