@@ -10,7 +10,7 @@ import android.widget.ImageView;
 public class AdminCategoryActivity extends AppCompatActivity {
 
     private ImageView medicine, babyCare;
-    private ImageView feminineHygine, diabetesMedicine,;
+    private ImageView feminineHygine, diabetesMedicine;
     private ImageView painRelief, others;
 
     @Override
@@ -32,7 +32,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "medicine");
+                intent.putExtra("category", "Medicine");
                 startActivity(intent);
             }
         });
@@ -41,16 +41,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "babyCare");
-                startActivity(intent);
-            }
-        });
-
-        babyCare.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "babyCare");
+                intent.putExtra("category", "Baby Care");
                 startActivity(intent);
             }
         });
@@ -60,7 +51,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "feminineHygine");
+                intent.putExtra("category", "Feminine Hygiene");
                 startActivity(intent);
             }
         });
@@ -70,7 +61,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "diabetesMedicine");
+                intent.putExtra("category", "Diabetes Medicine");
                 startActivity(intent);
             }
         });
@@ -80,7 +71,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "painRelief");
+                intent.putExtra("category", "Pain Relief");
                 startActivity(intent);
             }
         });
@@ -89,7 +80,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "others");
+                intent.putExtra("category", "Others");
                 startActivity(intent);
             }
         });
