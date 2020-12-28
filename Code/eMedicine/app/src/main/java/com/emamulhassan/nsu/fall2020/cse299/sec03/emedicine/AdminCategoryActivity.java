@@ -28,7 +28,71 @@ public class AdminCategoryActivity extends AppCompatActivity {
         others = (ImageView) findViewById(R.id.m_others);
 
 
-        
+        medicine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "medicine");
+                startActivity(intent);
+            }
+        });
+
+        babyCare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "babyCare");
+                startActivity(intent);
+            }
+        });
+
+        babyCare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "babyCare");
+                startActivity(intent);
+            }
+        });
+
+
+        feminineHygine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "feminineHygine");
+                startActivity(intent);
+            }
+        });
+
+
+        diabetesMedicine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "diabetesMedicine");
+                startActivity(intent);
+            }
+        });
+
+
+        painRelief.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "painRelief");
+                startActivity(intent);
+            }
+        });
+
+        others.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intent.putExtra("category", "others");
+                startActivity(intent);
+            }
+        });
 
 
     }
