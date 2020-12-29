@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
@@ -20,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -27,6 +29,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class AdminAddNewProductActivity extends AppCompatActivity {
     private String CategoryName;
@@ -40,6 +43,9 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private String productRandomKey;
     private StorageReference ProductImagesRef;
     private String downloadImageUrl;
+    private DatabaseReference ProductsRef;
+    private ProgressDialog loadingBar;
+
 
 
 
@@ -50,12 +56,15 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
         CategoryName = getIntent().getExtras().get("category").toString();
         ProductImagesRef = FirebaseStorage.getInstance().getReference().child("Product Images");
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         InputProductImage = (ImageView) findViewById(R.id.select_product_image);
         InputProductName = (EditText) findViewById(R.id.product_name);
         InputProductDescription = (EditText) findViewById(R.id.product_description);
         InputProductPrice = (EditText) findViewById(R.id.product_price);
         AddNewProductButton = (Button) findViewById(R.id.add_new_product);
+        loadingBar = new ProgressDialog(this);
+
 
 
         InputProductImage.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +135,11 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
 
     private void StoreProductInformation()
     {
+        loadingBar.setTitle("Add New Item");
+        loadingBar.setMessage("Please Wait, While we Add this New Product!");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
         Calendar calendar = Calendar.getInstance();
 
         SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
@@ -146,6 +160,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
             {
                 String message = e.toString();
                 Toast.makeText(AdminAddNewProductActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                loadingBar.dismiss();
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -170,11 +185,50 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
                     {
                         if (task.isSuccessful())
                         {
+                            downloadImageUrl = task.getResult().toString();
+
                             Toast.makeText(AdminAddNewProductActivity.this, "Image URL Generated Successfully.", Toast.LENGTH_SHORT).show();
+
+                            SaveProductInfoToDatabase();
                         }
                     }
                 });
                 
+            }
+        });
+
+    }
+
+    private void SaveProductInfoToDatabase()
+    {
+        HashMap<String, Object> productMap = new HashMap<>();
+        productMap.put("pid", productRandomKey);
+        productMap.put("date", saveCurrentDate);
+        productMap.put("time", saveCurrentTime);
+        productMap.put("category", CategoryName);
+        productMap.put("image", downloadImageUrl);
+        productMap.put("pname", Pname);
+        productMap.put("description", Description);
+        productMap.put("price", Price);
+
+        ProductsRef.child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task)
+            {
+                if (task.isSuccessful())
+                {
+                    Intent intent = new Intent(AdminAddNewProductActivity.this, AdminCategoryActivity.class);
+                    startActivity(intent);
+
+                    loadingBar.dismiss();
+                    Toast.makeText(AdminAddNewProductActivity.this, "Product Added Successfully.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    loadingBar.dismiss();
+                    String message = task.getException().toString();
+                    Toast.makeText(AdminAddNewProductActivity.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
