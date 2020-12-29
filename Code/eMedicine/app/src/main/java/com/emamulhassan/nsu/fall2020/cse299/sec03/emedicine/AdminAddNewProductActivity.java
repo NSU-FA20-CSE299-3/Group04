@@ -14,13 +14,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AdminAddNewProductActivity extends AppCompatActivity {
-    private String CategoryName, Pname, Description, Price;
+    private String CategoryName;
     private ImageView InputProductImage;
     private EditText InputProductName, InputProductDescription, InputProductPrice;
     private Button AddNewProductButton;
     private static final int GalleryPick = 1;
     private Uri ImageUri;
+    private String Pname, Description, Price;
+    private String saveCurrentDate, saveCurrentTime;
 
 
 
@@ -97,9 +102,24 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please Enter Product Price!", Toast.LENGTH_SHORT).show();
         }
+        else
+        {
+            StoreProductInformation();
+        }
 
+    }
 
+    private void StoreProductInformation()
+    {
+        Calendar calendar = Calendar.getInstance();
 
+        SimpleDateFormat currentDate = new SimpleDateFormat("dd MMM, yyyy");
+        saveCurrentDate = currentDate.format(calendar.getTime());
+
+        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+        saveCurrentTime = currentTime.format(calendar.getTime());
+
+        
     }
 
 
