@@ -11,6 +11,7 @@
         android:theme="@style/Theme.EMedicine">
         <activity android:name=".AdminCategoryActivity"></activity>
         <activity android:name=".AdminAddNewProductActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
