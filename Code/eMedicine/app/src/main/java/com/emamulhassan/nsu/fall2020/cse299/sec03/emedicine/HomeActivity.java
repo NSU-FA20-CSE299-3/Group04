@@ -29,6 +29,8 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
@@ -39,6 +41,8 @@ public class HomeActivity extends AppCompatActivity
 {
 
     private DatabaseReference ProductsRef;
+    private RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
 
 
     @Override
@@ -82,6 +86,12 @@ public class HomeActivity extends AppCompatActivity
 
         userNameTextView.setText(Prevalent.currentOnlineUser.getName());
 
+        recyclerView = findViewById(R.id.recycler_menu);
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
     }
 
     @Override
@@ -116,8 +126,8 @@ public class HomeActivity extends AppCompatActivity
                     }
                 };
 
-        
-
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
 
     }
 
