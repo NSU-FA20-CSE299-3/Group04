@@ -1,10 +1,19 @@
 package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Prevalent.Prevalent;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -30,6 +39,42 @@ public class SettingsActivity extends AppCompatActivity
         addressEditText = (EditText) findViewById(R.id.settings_address);
 
 
-        
+        userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
+
+
+
+
     }
+
+        private void userInfoDisplay(CircleImageView profileImageView, EditText fullNameEditText, EditText userPhoneEditText, EditText addressEditText)
+        {
+            DatabaseReference UserRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getPhone());
+
+            UserRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists())
+                    {
+                        if (snapshot.child("image").exists())
+                        {
+                            String image = snapshot.child("image").getValue().toString();
+                            String name = snapshot.child("name").getValue().toString();
+                            String phone = snapshot.child("phone").getValue().toString();
+                            String address = snapshot.child("address").getValue().toString();
+
+                            Picasso.get().load(image).into(profileImageView);
+                            fullNameEditText.setText(name);
+                            userPhoneEditText.setText(phone);
+                            addressEditText.setText(address);
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+        }
 }
