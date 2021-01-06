@@ -3,7 +3,9 @@ package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,16 +15,24 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SettingsActivity extends AppCompatActivity
+public class SettingsActivity extends AppCompatActivity{
 
     private TextView closeTextBtn, saveTextButton;
     private CircleImageView profileImageView;
     private TextView profileChangeTextBtn;
     private EditText fullNameEditText, userPhoneEditText, addressEditText;
+
+    private Uri uri;
+    private String myUrl = "";
+    private StorageReference storageProfilePrictureRef;
+    private String checker = "";
+
+
 
 
     @Override
@@ -40,6 +50,20 @@ public class SettingsActivity extends AppCompatActivity
 
 
         userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText, addressEditText);
+
+        closeTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        saveTextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
 
 
