@@ -15,6 +15,7 @@ public class ProductDetailsActivity extends AppCompatActivity
     private TextView productName, productDescription, productPrice;
     private ElegantNumberButton numberButton;
     private Button addToCartButton;
+    private String productID = "";
 
 
     @Override
@@ -27,6 +28,16 @@ public class ProductDetailsActivity extends AppCompatActivity
         productDescription = (TextView) findViewById(R.id.product_description_details);
         productPrice = (TextView) findViewById(R.id.product_price_details);
         numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
+        addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
+
+        productID = getIntent().getStringExtra("pid");
+
+        getProductDetails(productID);
+
+    }
+
+    private void getProductDetails(String productID)
+    {
 
     }
 }
