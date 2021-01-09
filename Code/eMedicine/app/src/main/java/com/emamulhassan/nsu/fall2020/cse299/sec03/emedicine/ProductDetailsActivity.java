@@ -1,5 +1,6 @@
 package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -8,6 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Model.Products;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class ProductDetailsActivity extends AppCompatActivity
 {
@@ -38,6 +46,27 @@ public class ProductDetailsActivity extends AppCompatActivity
 
     private void getProductDetails(String productID)
     {
+        DatabaseReference productsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
+        productsRef.child(productID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if (snapshot.exists())
+                {
+                    Products products = snapshot.getValue(Products.class);
+
+                    Picasso.get().load(products.getImage()).into(productImage);
+                    productName.setText(products.getPname());
+                    productDescription.setText(products.getDescription());
+                    productPrice.setText(products.getPrice());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
