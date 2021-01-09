@@ -69,7 +69,17 @@ public class SettingsActivity extends AppCompatActivity{
 
     private void updateOnlyUserInfo()
     {
-        
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Users");
+
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap. put("name", fullNameEditText.getText().toString());
+        userMap. put("address", addressEditText.getText().toString());
+        userMap. put("updatedPhoneNo", userPhoneEditText.getText().toString());
+        ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
+
+        startActivity(new Intent(SettingsActivity.this, MainActivity.class));
+        Toast.makeText(SettingsActivity.this, "Profile Updated Successfully.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 
