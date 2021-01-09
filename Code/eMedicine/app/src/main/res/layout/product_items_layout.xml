@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Product Name"
             android:layout_below="@+id/product_image"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textColorHint="#99000000"
@@ -40,7 +40,7 @@
             android:layout_below="@+id/product_name"
             android:text="Product Description"
             android:layout_marginTop="2dp"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="16dp"
             android:textColorHint="#99000000"
             />
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/product_description"
             android:text="Product Price"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textSize="18dp"
             android:textColorHint="#99000000"
             />
