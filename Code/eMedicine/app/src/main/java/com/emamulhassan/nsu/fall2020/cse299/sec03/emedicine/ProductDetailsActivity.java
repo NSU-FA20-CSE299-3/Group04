@@ -3,15 +3,19 @@ package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Model.Products;
 import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Prevalent.Prevalent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -70,7 +74,7 @@ public class ProductDetailsActivity extends AppCompatActivity
         SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
         saveCurrentTime = currentDate.format(calForDate.getTime());
 
-        DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
+        final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
 
         final HashMap<String, Object> cartMap = new HashMap<>();
         cartMap.put("pid", productID);
@@ -81,7 +85,31 @@ public class ProductDetailsActivity extends AppCompatActivity
         cartMap.put("quantity", numberButton.getNumber());
         cartMap.put("discount", "");
 
+        cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
+                .child("Products").child(productID)
+                .updateChildren(cartMap)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                                .child("Products").child(productID)
+                                .updateChildren(cartMap)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
+                                        if (task.isSuccessful())
+                                        {
+                                            Toast.makeText(ProductDetailsActivity.this, "Added to Cart List.", Toast.LENGTH_SHORT).show();
 
+                                            Intent intent = new Intent(ProductDetailsActivity.this, HomeActivity.class);
+                                            startActivity(intent);
+                                        }
+                                    }
+                                });
+                    }
+                });
 
 
 
