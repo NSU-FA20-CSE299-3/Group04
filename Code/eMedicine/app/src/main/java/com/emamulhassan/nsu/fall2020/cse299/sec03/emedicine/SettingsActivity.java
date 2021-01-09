@@ -53,7 +53,8 @@ public class SettingsActivity extends AppCompatActivity{
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 finish();
             }
         });
@@ -61,12 +62,27 @@ public class SettingsActivity extends AppCompatActivity{
         saveTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                if (checker.equals("clicked"))
+                {
+                    userInfoSaved();
+
+                }
+                else
+                {
+                    updateOnlyUserInfo();
+
+                }
             }
         });
 
+        profileChangeTextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                checker = "clicked";
 
-
+            }
+        });
 
     }
 
