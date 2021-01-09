@@ -47,11 +47,18 @@ public class ProductDetailsActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                
+                addingToCartList();
             }
         });
 
     }
+
+    private void addingToCartList()
+    {
+        
+    }
+
+
 
     private void getProductDetails(String productID)
     {
