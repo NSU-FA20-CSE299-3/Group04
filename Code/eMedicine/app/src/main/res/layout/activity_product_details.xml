@@ -62,7 +62,7 @@
         android:elevation="2dp"
         app:textSize="12dp"
         app:initialNumber="1"
-        app:finalNumber="10"
+        app:finalNumber="99"
         app:backGroundColor="@color/purple_700"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/product_price_details"
