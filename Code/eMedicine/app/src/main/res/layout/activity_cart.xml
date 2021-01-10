@@ -52,7 +52,20 @@
         android:layout_above="@+id/next_btn">
     </androidx.recyclerview.widget.RecyclerView>
 
-    
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/purple_500"
+        android:text="Next"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        />
 
 
 </RelativeLayout>
