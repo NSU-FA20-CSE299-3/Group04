@@ -1,6 +1,7 @@
 package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,8 +66,23 @@ public class CartActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model)
             {
                 holder.txtProductQuantity.setText("Quantity = " + model.getQuantity());
-                holder.txtProductPrice.setText("Price " + model.getPrice() + "BDT");
+                holder.txtProductPrice.setText("Price " + model.getPrice());
                 holder.txtProductName.setText(model.getPname());
+
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        CharSequence options[] = new CharSequence[]
+                                {
+                                        "Edit Quantity",
+                                        "Remove Item"
+                                };
+                        AlertDialog.Builder builder = new AlertDialog.Builder(CartActivity.this);
+                        builder.setTitle("Cart Options:");
+
+                    }
+                });
             }
 
             @NonNull
