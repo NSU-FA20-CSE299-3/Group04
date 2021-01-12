@@ -55,7 +55,7 @@ public class CartActivity extends AppCompatActivity {
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtTotalAmount.setText("Total Price = BDT" + String.valueOf(overTotalPrice));
+                txtTotalAmount.setText("Total Price = " + String.valueOf(overTotalPrice) + " BDT");
 
                 Intent intent = new Intent(CartActivity.this, ConfirmFinalOrderActivity.class);
                 intent.putExtra("Total Price", String.valueOf(overTotalPrice));
@@ -63,9 +63,8 @@ public class CartActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
+
 
     @Override
     protected void onStart()
@@ -86,7 +85,7 @@ public class CartActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model)
             {
                 holder.txtProductQuantity.setText("Quantity = " + model.getQuantity());
-                holder.txtProductPrice.setText("Price " + model.getPrice());
+                holder.txtProductPrice.setText("Price " + model.getPrice() + "BDT");
                 holder.txtProductName.setText(model.getPname());
 
                 int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
@@ -94,7 +93,7 @@ public class CartActivity extends AppCompatActivity {
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
+                    public void onClick(View view)
                     {
                         CharSequence options[] = new CharSequence[]
                                 {
@@ -106,23 +105,22 @@ public class CartActivity extends AppCompatActivity {
 
                         builder.setItems(options, new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialog, int which)
+                            public void onClick(DialogInterface dialogInterface, int i)
                             {
-                                if (which == 0)
+                                if (i == 0)
                                 {
                                     Intent intent = new Intent(CartActivity.this, ProductDetailsActivity.class);
                                     intent.putExtra("pid", model.getPid());
                                     startActivity(intent);
                                 }
-                                if (which == 1)
+                                if (i == 1)
                                 {
                                     cartListRef.child("User View")
                                             .child(Prevalent.currentOnlineUser.getPhone())
                                             .child("Products")
                                             .child(model.getPid())
                                             .removeValue()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>()
-                                            {
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task)
                                                 {
@@ -152,7 +150,7 @@ public class CartActivity extends AppCompatActivity {
                 return holder;
             }
         };
-        
+
         recyclerView.setAdapter(adapter);
         adapter.startListening();
     }
