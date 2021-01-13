@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
     private Button CreateAccountButton;
-    private EditText InputName, InputPhoneNumber, InputPassword;
+    private EditText InputName, InputPhoneNumber, InputPassword, InputAddress;
     private ProgressDialog loadingBar;
 
     @Override
@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         InputName = (EditText) findViewById(R.id.register_username_input);
         InputPassword = (EditText) findViewById(R.id.register_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.register_phone_number_input);
+        InputAddress = (EditText) findViewById(R.id.register_address_input);
         loadingBar = new ProgressDialog(this);
 
         CreateAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         String name = InputName.getText().toString();
         String phone = InputPhoneNumber.getText().toString();
         String password = InputPassword.getText().toString();
+        String address = InputAddress.getText().toString();
 
         if(TextUtils.isEmpty(name))
         {
@@ -65,6 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please Input Your Password!", Toast.LENGTH_SHORT).show();
         }
+        else if(TextUtils.isEmpty(address))
+        {
+            Toast.makeText(this, "Please Input Your Address!", Toast.LENGTH_SHORT).show();
+        }
         else
         {
             loadingBar.setTitle("Create Account");
@@ -72,12 +78,12 @@ public class RegisterActivity extends AppCompatActivity {
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
 
-            ValidatephoneNumber(name, phone, password);
+            ValidatephoneNumber(name, phone, password, address);
         }
 
     }
 
-    private void ValidatephoneNumber(String name, String phone, String password)
+    private void ValidatephoneNumber(String name, String phone, String password, String address)
     {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -92,6 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
                     userdataMap.put("phone", phone);
                     userdataMap.put("password", password);
                     userdataMap.put("name", name);
+                    userdataMap.put("address", address);
 
                     RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
