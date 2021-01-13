@@ -1,7 +1,9 @@
 package com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Prevalent.Prevalent;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -95,6 +99,35 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         ordersMap.put("date", saveCurrentDate);
         ordersMap.put("time", saveCurrentTime);
         ordersMap.put("state", "not shipped");
+
+        ordersRef.updateChildren(ordersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful())
+                {
+                    FirebaseDatabase.getInstance().getReference()
+                            .child("Cart List")
+                            .child("User View")
+                            .child(Prevalent.currentOnlineUser.getPhone())
+                            .removeValue()
+                            .addOnCompleteListener(new OnCompleteListener<Void>()
+                            {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful())
+                                    {
+                                        Toast.makeText(ConfirmFinalOrderActivity.this, "your final order has been placed successfully.", Toast.LENGTH_SHORT).show();
+
+                                        Intent intent = new Intent(ConfirmFinalOrderActivity.this, HomeActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
 
     }
 
