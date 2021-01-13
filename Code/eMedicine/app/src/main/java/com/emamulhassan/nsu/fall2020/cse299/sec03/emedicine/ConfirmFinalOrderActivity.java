@@ -57,6 +57,14 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Please provide your city name.", Toast.LENGTH_SHORT).show();
         }
+        else
+        {
+            ConfirmOrder();
+        }
+    }
+
+    private void ConfirmOrder()
+    {
         
     }
 }
