@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
@@ -84,6 +85,17 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         final DatabaseReference ordersRef = FirebaseDatabase.getInstance().getReference()
                 .child("Orders")
                 .child(Prevalent.currentOnlineUser.getPhone());
+
+        HashMap<String, Object> ordersMap = new HashMap<>();
+        ordersMap.put("totalAmount", totalAmount);
+        ordersMap.put("name", nameEditText.getText().toString());
+        ordersMap.put("phone", phoneEditText.getText().toString());
+        ordersMap.put("address", addressEditText.getText().toString());
+        ordersMap.put("city", cityEditText.getText().toString());
+        ordersMap.put("date", saveCurrentDate);
+        ordersMap.put("time", saveCurrentTime);
+        ordersMap.put("state", "not shipped");
+
     }
 
 }
