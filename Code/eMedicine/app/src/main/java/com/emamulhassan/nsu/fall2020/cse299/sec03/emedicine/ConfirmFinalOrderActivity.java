@@ -38,10 +38,10 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         Toast.makeText(this, "Total Price= " + totalAmount + " BDT", Toast.LENGTH_SHORT).show();
 
         confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
-        nameEditText = (EditText) findViewById(R.id.shippment_name);
-        phoneEditText = (EditText) findViewById(R.id.shippment_phone_number);
-        addressEditText = (EditText) findViewById(R.id.shippment_address);
-        cityEditText = (EditText) findViewById(R.id.shippment_city);
+        nameEditText = (EditText) findViewById(R.id.shipment_name);
+        phoneEditText = (EditText) findViewById(R.id.shipment_phone_number);
+        addressEditText = (EditText) findViewById(R.id.shipment_address);
+        cityEditText = (EditText) findViewById(R.id.shipment_city);
 
         confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
