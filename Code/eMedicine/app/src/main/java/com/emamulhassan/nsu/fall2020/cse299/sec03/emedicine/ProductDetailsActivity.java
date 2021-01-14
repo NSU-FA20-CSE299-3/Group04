@@ -29,7 +29,7 @@ import java.util.HashMap;
 
 public class ProductDetailsActivity extends AppCompatActivity
 {
-    private ImageView productImage;
+    private ImageView productImage, BackButton;
     private TextView productName, productDescription, productPrice;
     private ElegantNumberButton numberButton;
     private Button addToCartButton;
@@ -47,10 +47,18 @@ public class ProductDetailsActivity extends AppCompatActivity
         productPrice = (TextView) findViewById(R.id.product_price_details);
         numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
         addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
+        BackButton = (ImageView) findViewById(R.id.back_btn);
 
         productID = getIntent().getStringExtra("pid");
 
         getProductDetails(productID);
+
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
