@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.emamulhassan.nsu.fall2020.cse299.sec03.emedicine.Prevalent.Prevalent;
@@ -25,6 +26,7 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
 
     private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
     private Button confirmOrderBtn;
+    private ImageView BackButton2;
     private String totalAmount = "";
 
 
@@ -38,10 +40,19 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
         Toast.makeText(this, "Total Price= " + totalAmount + " BDT", Toast.LENGTH_SHORT).show();
 
         confirmOrderBtn = (Button) findViewById(R.id.confirm_final_order_btn);
+        BackButton2 = (ImageView) findViewById(R.id.back_btn_2);
         nameEditText = (EditText) findViewById(R.id.shipment_name);
         phoneEditText = (EditText) findViewById(R.id.shipment_phone_number);
         addressEditText = (EditText) findViewById(R.id.shipment_address);
         cityEditText = (EditText) findViewById(R.id.shipment_city);
+
+        BackButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ConfirmFinalOrderActivity.this, CartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         confirmOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
