@@ -8,67 +8,81 @@
     android:padding="10dp"
     tools:context=".ProductDetailsActivity">
 
-    <ImageView
-        android:id="@+id/product_image_details"
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:scaleType="centerCrop"
-        />
-
     <TextView
         android:id="@+id/product_name_details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/product_image_details"
         android:text="Product Name"
         android:textColor="#99000000"
         android:textStyle="bold"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginVertical="20dp"
         />
+
+    <ImageView
+        android:id="@+id/product_image_details"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/product_name_details"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="160dp"
+        android:layout_below="@+id/product_name_details">
+
+        <TextView
+            android:id="@+id/product_price_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Price"
+            android:textColor="#99000000"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
+
+            />
+
+        <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
+            android:id="@+id/number_btn"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:elevation="2dp"
+            app:textSize="12dp"
+            app:initialNumber="1"
+            app:finalNumber="99"
+            app:backGroundColor="@color/purple_700"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/product_price_details"
+            android:layout_marginVertical="10dp"
+            android:layout_marginLeft="10dp"
+            >
+
+        </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/product_description_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/product_name_details"
-        android:text="Product Description"
-        android:textColor="#99000000"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:id="@+id/product_price_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/product_description_details"
-        android:text="Product Price"
-        android:textColor="#99000000"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        />
-
-
-    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-        android:id="@+id/number_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:elevation="2dp"
-        app:textSize="12dp"
-        app:initialNumber="1"
-        app:finalNumber="99"
-        app:backGroundColor="@color/purple_700"
+        android:layout_below="@+id/product_image_details"
+        android:text="Product Description"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/product_price_details"
+        android:textColor="#99000000"
+        android:textSize="16sp"
         android:layout_marginTop="20dp"
-        >
-    </com.cepheuen.elegantnumberbutton.view.ElegantNumberButton>
+        />
+
+
+
+
 
 
     <Button
