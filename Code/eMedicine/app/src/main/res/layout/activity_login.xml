@@ -13,8 +13,8 @@
         android:layout_height="120dp"
         android:src="@drawable/applogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
         />
 
     <EditText
@@ -131,6 +131,23 @@
         android:layout_marginLeft="80dp"
         android:layout_marginStart="25dp"
         android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/dont_have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_panel_link"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design_2"
+        android:padding="17dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Don't Have an Account? Register!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold|italic"
         />
 
 </RelativeLayout>
