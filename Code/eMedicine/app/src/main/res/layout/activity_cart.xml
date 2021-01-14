@@ -51,5 +51,20 @@
         android:textSize="20dp"
         />
 
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/purple_500"
+        android:text="Back"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        />
+
 
 </RelativeLayout>
