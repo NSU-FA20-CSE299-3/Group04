@@ -14,8 +14,8 @@
         android:layout_height="120dp"
         android:src="@drawable/applogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="30dp"
         />
 
     <EditText
@@ -102,6 +102,22 @@
         android:text="Create an Account"
         android:textColor="#99000000"
         android:textStyle="bold"
+        />
+    <Button
+        android:id="@+id/have_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/register_btn"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design_2"
+        android:padding="17dp"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:text="Already Have an Account? Login!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold|italic"
         />
 
 </RelativeLayout>
