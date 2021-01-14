@@ -31,7 +31,7 @@ public class CartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
 
-    private Button NextProcessBtn;
+    private Button NextProcessBtn, BackButton;
     private TextView txtTotalAmount;
 
     private int overTotalPrice = 0;
@@ -50,7 +50,16 @@ public class CartActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         NextProcessBtn = (Button) findViewById(R.id.next_btn);
+        BackButton = (Button) findViewById(R.id.back_button);
+
         txtTotalAmount = (TextView) findViewById(R.id.total_price);
+
+        BackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
