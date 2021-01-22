@@ -113,7 +113,7 @@ This project has the following features -
 <h3>2.5 Admin Panel:</h3>
 There's also a Admin panel in Firebase Database, from which the Admin can delete spam accounts, control and manage both users and items. They can also assign new admins or sub admins with filtered permission and monitor activities.
 <p align="center">
-<img width="1200" height="600" src="images/admin.png"><br>
+<img width="1200" height="500" src="images/admin.png"><br>
 Figure 7.0
 </p><br><br>
 
