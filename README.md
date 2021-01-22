@@ -1,77 +1,157 @@
-<p style="text-align: center;">&nbsp;</p>
-<p style="text-align: center;">&nbsp;</p>
-<p align="center"><strong><img src="https://media.dhakatribune.com/uploads/2016/11/nsulogo.jpg" alt="" width="307" height="172" /></strong></p>
-<p align="center"><strong>North South University</strong></p>
-<p align="center">Department of Electrical &amp; Computer Engineering</p>
-<p align="center"><strong>Project Proposal</strong></p>
-<p align="center"><strong>Group No</strong>: 4</p>
-<p align="center"><strong>Fall 2020</strong></p>
-<p align="center"><strong>Project Name</strong>: E-Medicine App </p>
-<p align="center"><strong>Course No</strong>: CSE 299 <strong>Sec</strong><strong>:</strong> 03</p>
-<p align="center"><strong>Faculty</strong>: Shaikh Shawon Arefin Shimon (Sas3)</p>
-<p align="center"><strong>Name</strong><strong>:</strong> Emamul Hassan </p>
-<p align="center"><strong>ID</strong><strong>:&nbsp; </strong>1731250642</p>
-<p align="center"><strong>Email</strong><strong>:</strong> <a href="mailto:emamul.hassan@northsouth.edu"> emamul.hassan@northsouth.edu</a></p>
-<p align="center"><strong>Git Repository</strong><strong>: </strong><a href="https://github.com/NSU-FA20-CSE299-3/Group04">https://github.com/NSU-FA20-CSE299-3/Group04/</a></p>
-<p align="center"><strong>Date Prepared</strong><strong>: </strong>14/11/2020</p>
-<p><strong>&nbsp;</strong></p>
-<p><strong>&nbsp;</strong></p>
+<p align="center">
+  <img width="250" height="280" src="images/nsulogo.png">
+</p>                                        
 
-<p><strong>INTRODUCTION</strong></p>
-<p>As covid-19 enters Bangladesh, it has affected many people. So, the government announced lockdown. Now, sick people are helpless. They can’t go out to see doctors or even buy their necessary medicine. There are many people live in city alone. So, it’s hard for them to buy medicine from a physical shop. Now here, the E-medicine app will make their life easy. In 2020, it’s rare to find someone without a smartphone. So, as people are already using smartphone on a daily basis why not make their life easier by letting them buy medicine online using an E-medicine application?</p>
-<p>In this project, I will be developing an E-Medicine Application for Android. Any user can download this app for free and use it for their online medicine purchases. Not only medicines, the app will have a section where people can order for necessary item for babies like Diaper, Baby oil, Shampoo etc. This will help the single parents a lot by not going to a shop. The app will benefit a store to increase their number of sales, help the helpless and most importantly, develop an effective tool to help the healthcare system.</p>
-<p><strong>FEATURES</strong></p>
 
-<ul>
-<li>A welcome page, where a user can Sign in or Join from their devices.</li>
-<li>Clicking any of them will take them to a Sign in or Sign up page where they can sign in with their Existing Account or Register an account for new users.</li>
-<li>The user must Verify their account information.</li>
-<li>After a successful login or a registration, the user will be redirected to the Main Landing Page from where they will be shown Medicine Suggestion based on popularity.</li>
-<li>The user can Manually Search and select Quantity of the medicine.</li>
-<li>There will be a Category menu bar, where a user can find or view different types of medicines.</li>
-<li>There will be a Cart Tab where the user can view his/her added to cart items.</li>
-<li>The cart tab will show the Shipping and Handling and Total Prices of the added medicines.</li>
-<li>There will be an option for Cash on Delivery. If a user selects this, he/she needs to confirm his/her local address again.</li>
-<li>For Cash on delivery user must Verify their Phone Number. Without a registered phone number, no user can order anything by cash on delivery.</li>
-<li>After confirming, an Automated Email will be sent to their email address confirming their order and delivery time.</li>
 
-</ul>
-<p><strong>TECHNOLOGY</strong></p>
-<p>The application will be developed by Android Studio. Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development.
+
+
+
+
+
+
+  <h1 align="center">Project Name: E-Medicine</h1>
+  <h2 align ="center">Course Number: CSE 299<br>
+  Section: 03</br>
+  Semester: Fall 2020</br><br>
+  Faculty Name: Shaikh Shawon Arefin Shimon</h2>
+  <h3 align="center">Student Name: Emamul Hassan<br>
+  Student ID: 1731250642<br>
+  Email: emamul.hassan@northsouth.edu <br><br>
+  Date prepared: 21/01/2021</h3><br><br><br>
+
+
+
+
+
+
+
+
+
+
+<h2> Project Name: E-Medicine </h2><br>
+<h3 id="table-of-contents">Table of Contents</h3>
+
+<ol>
+  <a href="#introduction"><li>Introduction</li><br></a>
+  <a href="#features"><li>Features</li><br></a>
+  <a href="#technology"><li>Technology</li><br></a>
+  <a href="#monetization"><li>Monetization</li></a><br>
+  <a href="#conclusion"><li>Conclusion</li></a><br><hr>
+
+</ol>
+<br>
+
+
+<h2 id="introduction">1. Introduction</h2>
+<p>As covid-19 enters Bangladesh, it has affected many people. So, the government announced lockdown. Now, sick people are helpless. They can’t go out to see doctors or even buy their necessary medicine. There are many people live in city alone. So, it’s hard for them to buy medicine from a physical shop. Now here, the E-medicine app will make their life easy. In 2020, it’s rare to find someone without a smartphone. So, as people are already using smartphone on a daily basis why not make their life easier by letting them buy medicine online using an E-medicine application?
+<br>
+In this project, I will be developing an E-Medicine Application for Android. Any user can download this app for free and use it for their online medicine purchases. Not only medicines, the app will have a section where people can order for necessary item for babies like Diaper, Baby oil, Shampoo etc. This will help the single parents a lot by not going to a shop. The app will benefit a store to increase their number of sales, help the helpless and most importantly, develop an effective tool to help the healthcare system.
+</p><br>
+
+<h2 id="features">2. Features</h2>
+This project has the following features -
+
+<h3>2.1 User Registration:</h3>
+  To access the application, a customer must have to register first. A customer can register with a phone number which will be used as their primary login service. This app will also ask for a Username which will be stored in the database. Customer must also input a Primary Address as it will be used to deliver the ordered item.
+  <br>
+
+ <p align="center">
+   <img width="280" height="550" src="images/registration.png"><br>
+   Figure 1.0
+ </p>
+
+ <h3>2.2 User Login:</h3>
+  Customers who have registered, can use their phone number and password to login to access the app and order item for the app.<br>
+  <br>
+  <p align="center">
+  <img width="280" height="550" src="images/login.png"><br>
+  Figure 2.0
+ </p>
+ <br>
+
+
+<h3>2.3 Primary Features:</h3>
+  <p>Currently the following functions are available for Customers-
+  <p>
+    * Remember me Feature is available for user to remember their login.<br>
+    * After a successful login customer will land on the HomePage of the App.<br>
+    * A Menu Drawer is available for customer to browse different options.<br>
+    * Customer can search their desired medicine or other item from available in the app.<br>
+    * Settings menu to update User name, Phone number and Address.<br>
+    * Check details of each item available.<br>
+    * Add to cart option for each item.<br>
+    * Cart menu to see ordered items and total price.<br>
+    * Edit quantity or remove item feature available in cart menu.<br>
+    * Final customer details input section for delivery location.<br>
+    * Cart menu will be cleared after an order.<br>
+    <p align="center">
+	  	<img width="850" height="500" src="images/cusFeature1.png"><br>
+	  	Figure 4.0
+	</p> 
+</p>
+<p align="center">
+	  	<img width="850" height="500" src="images/cusFeature2.png"><br>
+	  	Figure 5.0
+	</p> 
 </p>
 
-<p><em>Frontend</em></p>
-<p>For the frontend we will be using XML and Java. XML is a markup language much like HTML used to describe data. In Android we use xml for designing our layouts because xml is lightweight language so it doesn't make our layout heavy. It also gives a more premium user interface and smoother experience.</p>
+<br>
+<h3>2.4 Admin Feature:</h3>
+  <p>Currently the following functions are available for Admins-
+  <p>
+    * After a successful login admin will land on the a unique HomePage for admins.<br>
+    * There are 6 item categories available for admin to add item to them.<br>
+  <p align="center">
+      <img width="550" height="500" src="images/adminFeature.png"><br>
+      Figure 6.0
+  </p> 
+</p>
 
-<p><em>Backend</em></p>
-<p>For the backend we will be using Firebase. Firebase is a platform developed by Google for creating mobile and web applications.</p>
 
-<p><em>Database</em></p>
-<p>We will also be using the Firebase for Database. It has a Realtime Database feature. The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in Realtime to every connected client.</p>
+   
+<h3>2.5 Admin Panel:</h3>
+There's also a Admin panel in Firebase Database, from which the Admin can delete spam accounts, control and manage both users and items. They can also assign new admins or sub admins with filtered permission and monitor activities.
+<p align="center">
+<img width="1200" height="600" src="images/admin.png"><br>
+Figure 7.0
+</p><br><br>
 
-<p><em>Payment method</em></p>
-<p>We will have Cash on delivery payment method along with other online payment like Bkash and will be using API to ensure that users can pay using their Debit card.</p>
+ <h2 id="technology">3. Technology</h2>
+ <h3>Android Studio: </h3>
+ <p>For Developing this E-Medicine app, I have chosen Android Studio developed by Google. Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development. It provides a unified environment where you can build apps for Android phones, tablets, Android Wear, Android TV, and Android Auto. Structured code modules allow you to divide your project into units of functionality that you can independently build, test, and debug.</p>
+ <ul>
+    <li> Robust and flexible build system: Android Studio offers build automation, dependency management, and customizable build configurations. You can configure your project to include local and hosted libraries, and define build variants that include different code and resources, and apply different code shrinking and app signing configurations.</li>
+    <li>Designed for teams: Android Studio integrates with version control tools, such as GitHub and Subversion, so you can keep your team in sync with project and build changes. The open source Gradle build system allows you to tailor the build to your environment and run on a continuous integration server such as Jenkins.</li>
+    <li>Optimized for all Android devices : Android Studio provides a unified environment where you can build apps for Android phones, tablets, Android Wear, Android TV, and Android Auto. Structured code modules allow you to divide your project into units of functionality that you can independently build, test, and debug.</li>
+</ul>
 
-<p><em>Monetization</em></p>
-<p>As an online application, I will add Google AdSense to monetize the application to help me with the fund for its future development.</p>
+ <h3>Firebase Database: </h3>
+ <p>For Data management I have chosen Google's Firebase Database.The Firebase Realtime Database is a cloud-hosted NoSQL database that lets you store and sync data between your users in realtime. SQLite is local database on Android device (data stored/processed on a device) with SQL interface, which makes FireBase suitable for real time applications. Cloud Firestore enables you to store, sync and query app data at global scale. The reason for using firebase is that its free, user friendly and has multiple features, such as:</p>
 
-<p><strong>HIGHLIGHTS AND ET CETERA</strong></p>
-<p>There are many other features of this application which makes this application super user
-friendly. There are many middle aged and old Diabetes patients who cannot get their insulins and other medicines in time. So, it will be easy for them just to order medicines and get them by their doorsteps.</p>
+<ul>
+    <li> Realtime: Instead of typical HTTP requests, the Firebase Realtime Database uses data synchronization—every time data changes, any connected device receives that update within milliseconds. Provide collaborative and immersive experiences without thinking about networking code.</li>
+    <li>Offline: Firebase apps remain responsive even when offline because the Firebase Realtime Database SDK persists your data to disk. Once connectivity is reestablished, the client device receives any changes it missed, synchronizing it with the current server state.</li>
+    <li>Accessible from Client Devices	: The Firebase Realtime Database can be accessed directly from a mobile device or web browser; there’s no need for an application server. Security and data validation are available through the Firebase Realtime Database Security Rules, expression-based rules that are executed when data is read or written.</li>
+    <li>Scale across multiple databases	: With Firebase Realtime Database on the Blaze pricing plan, you can support your app's data needs at scale by splitting your data across multiple database instances in the same Firebase project. Streamline authentication with Firebase Authentication on your project and authenticate users across your database instances. Control access to the data in each database with custom Firebase Realtime Database Rules for each database instance.</li>
+</ul><br>
 
-<p><em>User Profile</em></p>
-<p>There will be a profile page for every registered user to access their information, where they can track record of all their orders and pending orders. It will also save the carted item if someone accidently close the application or the app crashes. From the page, they can edit all their personal information like email, mobile number, username and password in case something needs to change.</p>
 
-<p><em>Quick Registration</em></p>
-<p>Without an account one can access this app and browse and add medicines to the cart. This feature is really good is some cases as if someone is in hurry for looking for certain medicines which he/she is not finding anywhere. They can just search and if they find they add the item to the cart and it will ask them to register. They can just register with mobile phone or email and customize their profile later from profile page. If they don’t find the item they can just leave and save their valuable time. There is no need to create an account just to browse. So, Quick Registration is must for the user experience.</p>
 
-<p><em>Search Bar</em></p>
-<p>The app will have an enhanced search bar for user to easily search from the homepage without going to category every single time.</p>
+<p>All informations are taken from–
 
-<p><em>Rating System</em></p>
-<p>This feature will be for the shop rating, in terms of their approach to the customer for example, the behavior, delivery and condition of medicine. If a user is pleased by their services, they may rate them within 1-5 star.</p>
+  <a href="https://developer.android.com/studio/features">Android Studio</a>
+  and 
+	<a href="https://firebase.google.com/docs/database">Firebase Database</a>
 
-<p><em>Reward System</em></p>
-<p>For every 1000BDT purchase, a user will receive a coupon of 50-100 BDT off, which they can use later for buying another item. But the item must be more than 500 taka or the coupon will not work. Also, there will be a yearly coupon and many occasional rewards for users.</p>
+  </p><br><br>
 
-<p><strong>References: </strong><a href="https://www.youtube.com/c/CodingCafe"> Youtube</a></p>
+
+
+<h2 id="monetization">4. Monetization</h2>
+<p>As an online application, I will add Google AdSense to monetize the application to help me with the fund for its future development. </p><br><br>
+
+<h2 id="conclusion">5. Conclusion</h2>
+<p>
+In summary the app is an online medicine delivery app which was developed to use any people. In this project we completed most of the functionalities proposed. Except the API part of payment system. Though basic features of the app works fine, there are no auto location features. Also one more major problem is, I could not implement the business or monetization plan using Google-AdSense. A order is only controlled by the Admin of Firebase. Admin cannot use this app to complete orders. He must go to firebase database to finish the order. Without this feature the app is incomplete. Search option is not complete. Also i could not implement review and rating system due to shortage of time. In future, I plan to implement these missing functionalities,come up with better solution for the implementation and make the app even better.
+</p>
